@@ -56,6 +56,13 @@ def get_google_sheet_connection():
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def load_data():
     """Load data from Google Sheets"""
+    
+    # DEBUG - přidejte toto
+    st.write("🔍 DEBUG INFO:")
+    st.write("Available secrets:", list(st.secrets.keys()))
+    st.write("Has sheet_url:", "sheet_url" in st.secrets)
+    st.write("Has gcp_service_account:", "gcp_service_account" in st.secrets)
+    
     try:
         client = get_google_sheet_connection()
         if not client:
