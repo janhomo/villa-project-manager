@@ -61,7 +61,7 @@ def load_data():
         if not client:
             return pd.DataFrame()
         
-        sheet = client.open_by_url(st.secrets["sheet_url"]).sheet1
+        sheet = client.open_by_url(str(st.secrets.get("sheet_url", ""))).sheet1
         data = sheet.get_all_records()
         df = pd.DataFrame(data)
         
